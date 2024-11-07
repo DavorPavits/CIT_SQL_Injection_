@@ -30,7 +30,7 @@ do {
        qConstructor.dynamicQuery();
        break;
      case "c":
-       qConstructor.composedQuery();
+       qConstructor.flexibleQuery();
        break;
      case "x": 
        Console.WriteLine("exiting ..");
