@@ -6,7 +6,7 @@ public class QueryConstructor {
 
   public QueryConstructor()
   {
-        client = new PostgreSQL_Client();
+        client = new PostgreSQL_Client("university_book", "postgres", "pavits");
     // retain university database
     // but change username and password
   }
