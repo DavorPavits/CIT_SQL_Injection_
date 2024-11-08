@@ -1,16 +1,12 @@
 ﻿// QueryConstructor.cs
+
 using dotenv.net;
+
 public class QueryConstructor {
 
   public QueryConstructor()
   {
-    DotEnv.Load();
-
-        string dbName = Environment.GetEnvironmentVariable("DB_NAME");
-        string dbUser = Environment.GetEnvironmentVariable("DB_USER");
-        string dbPassword = Environment.GetEnvironmentVariable("DB_PASSWORD");
-
-        client = new PostgreSQL_Client(dbName, dbUser, dbPassword);
+        client = new PostgreSQL_Client();
     // retain university database
     // but change username and password
   }
@@ -62,22 +58,22 @@ public class QueryConstructor {
     client.query(sql);
   }
 
-    virtual public void flexibleQuery()
-    {
-        string staticSQLbefore = "select * from course where course_id like '%";
-        Console.Write("Please type keyword: ");
-        string? user_defined = Console.ReadLine();
-        string staticSQLafter = "%' and dept_name != 'Biology'";
-        string sql = staticSQLbefore+user_defined.ToUpper() + staticSQLafter;
+  virtual public void flexibleQuery()
+  {
+    string staticSQLbefore = "select * from course where course_id like '%";
+    Console.Write("Please type keyword: ");
+    string? user_defined = Console.ReadLine();
+    string staticSQLafter = "%' and dept_name != 'Biology'";
+    string sql = staticSQLbefore+user_defined.ToUpper() + staticSQLafter;
 
-        //printing query string to console
-        Console.Write("Query to be executed: " + staticSQLbefore);
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.Write(user_defined);
-        Console.ForegroundColor = ConsoleColor.White;
-        Console.WriteLine(staticSQLafter + "\n");
+    //printing query string to console
+    Console.Write("Query to be executed: " + staticSQLbefore);
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.Write(user_defined);
+    Console.ForegroundColor = ConsoleColor.White;
+    Console.WriteLine(staticSQLafter + "\n");
 
-        //excecuting query
-        client.query(sql);
+    //excecuting query
+    client.query(sql);
     }
 }

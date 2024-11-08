@@ -6,9 +6,13 @@
     <RootNamespace>SQL_Injection_Frontend</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <UserSecretsId>3672cc5d-a6cf-4757-9be7-fcc990ac1627</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="dotenv.net" Version="3.2.1" />
+    <PackageReference Include="dotenvfile" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
     <PackageReference Include="Npgsql" Version="8.0.5" />
   </ItemGroup>
 
