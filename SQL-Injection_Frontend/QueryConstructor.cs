@@ -86,4 +86,26 @@ public class QueryConstructor {
     //excecuting query
     client.query(sql);
     }
+
+    virtual public void safeComposedQuery()
+    {
+
+        string name = "@1";
+        // defining the query
+        string staticSQLbefore = "select * from safe_course('";
+        Console.Write("Please type id of a course, or part of id: ");
+        string? user_defined = Console.ReadLine();
+        string staticSQLafter = "')";
+        string sql = staticSQLbefore + name + staticSQLafter;
+
+        // printing query string to console
+        Console.Write("Query to be executed: " + staticSQLbefore);
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write(user_defined);
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine(staticSQLafter + "\n");
+
+        // executing query
+        client.query(sql, name, user_defined);
+    }
 }

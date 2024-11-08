@@ -21,7 +21,8 @@ do {
   Console.Write("Please select character + enter\n"
           + "'d' (dynamic query)\n"
           + "'c' (composed query)\n"
-          +"'f' (flexible query)\n"
+          + "'f' (flexible query)\n"
+          + "'sc' (safe Course query)\n"
           + "'x' (exit)\n"
           + ">");
   s = Console.ReadLine();
@@ -39,6 +40,9 @@ do {
      case "x": 
        Console.WriteLine("exiting ..");
        break;
+     case "sc":
+       qConstructor.safeComposedQuery();
+        break;
      default:
        Console.WriteLine("you typed " + "'" + s + "'" + " -- please use a suggested value");
        break;
