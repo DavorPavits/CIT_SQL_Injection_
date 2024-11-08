@@ -21,6 +21,7 @@ do {
   Console.Write("Please select character + enter\n"
           + "'d' (dynamic query)\n"
           + "'c' (composed query)\n"
+          +"'f' (flexible query)\n"
           + "'x' (exit)\n"
           + ">");
   s = Console.ReadLine();
@@ -30,8 +31,11 @@ do {
        qConstructor.dynamicQuery();
        break;
      case "c":
-       qConstructor.flexibleQuery();
+       qConstructor.composedQuery();
        break;
+     case "f":
+        qConstructor.flexibleQuery();
+        break;
      case "x": 
        Console.WriteLine("exiting ..");
        break;
