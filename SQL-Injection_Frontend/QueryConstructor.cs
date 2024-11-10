@@ -59,19 +59,11 @@ public class QueryConstructor {
   }
 
   virtual public void flexibleQuery()
-  {
-    //var negativeList = new List<string>{ "true", "1", "=", "%", "'", "--", ";", "/"};
-    //    var positiveList = new List<string> { "CS", "BIO" };
+  { 
     string staticSQLbefore = "select * from course where course_id like '%";
     Console.Write("Please type keyword: ");
     string? user_defined = Console.ReadLine();
-        //foreach (var item in negativeList)
-        //{
-        //    if (user_defined.Contains(item))
-        //    {
-        //        user_defined = "";
-        //    }
-        //}
+  
 
     string staticSQLafter = "%' and dept_name != 'Biology'";
     string sql = staticSQLbefore + user_defined.ToUpper() + staticSQLafter;
