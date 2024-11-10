@@ -60,18 +60,18 @@ public class QueryConstructor {
 
   virtual public void flexibleQuery()
   {
-    var negativeList = new List<string>{ "true", "1", "=", "%", "'", "--", ";", "/"};
-        var positiveList = new List<string> { "CS", "BIO" };
+    //var negativeList = new List<string>{ "true", "1", "=", "%", "'", "--", ";", "/"};
+    //    var positiveList = new List<string> { "CS", "BIO" };
     string staticSQLbefore = "select * from course where course_id like '%";
     Console.Write("Please type keyword: ");
     string? user_defined = Console.ReadLine();
-        foreach (var item in negativeList)
-        {
-            if (user_defined.Contains(item))
-            {
-                user_defined = "";
-            }
-        }
+        //foreach (var item in negativeList)
+        //{
+        //    if (user_defined.Contains(item))
+        //    {
+        //        user_defined = "";
+        //    }
+        //}
 
     string staticSQLafter = "%' and dept_name != 'Biology'";
     string sql = staticSQLbefore + user_defined.ToUpper() + staticSQLafter;
@@ -92,10 +92,10 @@ public class QueryConstructor {
 
         string name = "@1";
         // defining the query
-        string staticSQLbefore = "select * from safe_course('";
+        string staticSQLbefore = "select * from safe_course(";
         Console.Write("Please type id of a course, or part of id: ");
         string? user_defined = Console.ReadLine();
-        string staticSQLafter = "')";
+        string staticSQLafter = ")";
         string sql = staticSQLbefore + name + staticSQLafter;
 
         // printing query string to console
@@ -106,6 +106,6 @@ public class QueryConstructor {
         Console.WriteLine(staticSQLafter + "\n");
 
         // executing query
-        client.query(sql, name, user_defined);
+        client.query(sql, "1", user_defined);
     }
 }
